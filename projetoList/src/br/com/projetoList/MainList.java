@@ -2,6 +2,7 @@ package br.com.projetoList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MainList {
 
@@ -52,18 +53,9 @@ public class MainList {
 		for (String nome : listaNomes) {
 			System.out.println(nome
 					);
-						}
+						}	
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-
 	}
 
 }
