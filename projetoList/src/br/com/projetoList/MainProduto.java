@@ -36,36 +36,57 @@ System.out.println("------------------- SISTEMA PRODUTOS -----------------------
 		case 1: 
 			//Adicionar 
 			System.out.print("Escreva o nome do produto: ");
-			String produto=scan.next();
-			listaProdutos.add(produto);
+			String adicionarProduto=scan.next();
+			listaProdutos.add(adicionarProduto);
+			System.out.println("Produto Alterado com sucesso!");
 			break; 
 			
 		case 2: 
 			//Excluir 
-			System.out.println("Excluir: ");
-			String apagar= scan.next(); 
 			
-			int indexApagar=listaProdutos.indexOf(apagar);
+			System.out.println("Escreva qual produto você quer excluir: ");
+			String apagarProduto= scan.next(); 
+			
+			int indexApagar=listaProdutos.indexOf(apagarProduto);
+			
+			boolean checkExclusao = listaProdutos.remove(apagarProduto);
+			
+			if (checkExclusao==true) {
 			listaProdutos.remove(indexApagar);
+			System.out.println("Produto apagado!");
+
+			} else { 
+				System.out.println("Produto não encontrado.");
+			}
 			break; 
 			
 		case 3: 
 			//Editar 
+			
 			System.out.println("Qual elemento você quer editar?");
-			String editar= scan.next(); 
-			int indexEditar=listaProdutos.indexOf(editar);
+			String editarProduto= scan.next(); 
+			int indexEditar=listaProdutos.indexOf(editarProduto);
 
+			if (indexEditar >= 0) {
 			System.out.println("Qual a informação você quer adicionar?");
 			String novoElemento= scan.next(); 
 			listaProdutos.set(indexEditar, novoElemento);
+			System.out.println("Produto Adicionado com sucesso!");
+			} else { 
+				System.out.println("Esse produto não existe");
+			}
 			break; 
 			
 		case 4: 
 			//Ler 
+			if (listaProdutos.size()>0) { 
 			System.out.println();
-			System.out.println(" - Lista de produtos - ");
+			System.out.println(" - Lista de produtos -");
 			for (String nome : listaProdutos) {
 			System.out.println(nome);
+			}
+			} else { 
+				System.out.println("Nenhum produto está cadastrado na lista.");
 			}
 			break;
 			
