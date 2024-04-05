@@ -10,27 +10,53 @@ public class MainArrayList {
 		// TODO Auto-generated method stub
 
 		ArrayList<Integer> listaNumeros= new ArrayList();
+		ArrayList<String> relatorio= new ArrayList();
+
+		String relatorioFinal="Resultados: \n"; 
 		
+		int valorTotal=0; 
+		int acertos =0; 
 		
-		for (int i=0; i<10; i++) {
+		for (int i=0; i<5; i++) {
 		int opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite um número: ")); 
 		
 		listaNumeros.add(opcao); 
+		acertos=acertos+1; 
 		
-		JOptionPane.showMessageDialog(null, "Ok, vamos para o próximo!");
+		if (opcao==10 || opcao==100 || opcao==1000) {
+			JOptionPane.showMessageDialog(null, "Você ganhou R$ 50,00!");
+			valorTotal=valorTotal+50; 
+
+		}
+		
+		JOptionPane.showMessageDialog(null, "Clique OK para prosseguir.");
 
 		} 
 		
 		JOptionPane.showMessageDialog(null, "Lista finalizada. Clique ok para ir para o resultado.");
 		
-		
-		//Se o usuário tiver digitado os números 10, 100 ou 1000 mostre uma mensagem informando que ele ganhou um bônus de R$ 50,00 12
-		// fazer um for of percorrer o array e ir fazendo a soma mas também mostrar quem sabe um extrato 
-	
-	//exemplo de for of for (let fruta of lista) {
-	//  console.log(fruta);
-	//}
+		for (int numero : listaNumeros) {
+			if (numero==10 || numero==100 || numero==1000) {
+				
+				relatorio.add(numero + " - R$ 50,00"); 
 
+			}
+		}
+		
+		int tamanho = relatorio.size(); 
+				
+		for (int i=0; i <tamanho; i++) {
+			relatorioFinal+=relatorio.get(i)+ "\n"; 		
+		
+		}
+
+		
+		relatorioFinal+="Valor total: R$" + valorTotal; 
+		
+		
+		//.concat(null, "O valor total que você vai receber é de R$ " + valorTotal);
+
+		JOptionPane.showMessageDialog(null, relatorioFinal);
 
 }
 } 
